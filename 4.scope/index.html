@@ -16,21 +16,12 @@
 
 
     <script type="text/babel">
-      var FirstComponent = React.createClass({
-        render: function(){
-          return(
-            <div>
-              <h1>Hello World!</h1>
-              <p>This is a component.</p>
-            </div>
-          )
-        }
-      });
-
-      ReactDOM.render(
-        <FirstComponent />,
-        document.getElementById('app')
-      );
+    var a = 10;
+    function logA(){
+      console.log(a);
+    }
+    logA();
+    console.log(a);
     </script>
   </body>
 </html>
