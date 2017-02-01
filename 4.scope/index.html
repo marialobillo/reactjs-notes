@@ -16,12 +16,30 @@
 
 
     <script type="text/babel">
+  // Global scope
     var a = 10;
     function logA(){
       console.log(a);
     }
     logA();
     console.log(a);
+
+    // function
+    function logB(){
+      var b = 100;
+      console.log(b);
+    }
+    logB();
+    console.log(b);
+
+    // Lack of block scope
+    var c = 99;
+    if (true){
+      var c = 100;
+      console.log(c);
+    }
+
+    console.log(c);
     </script>
   </body>
 </html>
