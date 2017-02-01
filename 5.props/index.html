@@ -16,16 +16,19 @@
     <script type="text/babel">
       var SecondComponent =React.createClass({
         render: function(){
+          let name = this.props.name;
+          let location = this.props.location;
           return (
             <div>
-              <p>Hello, {this.props.name}!</p>
+              <p>Hello, {name}!</p>
+              <p>I like in {location}</p>
             </div>
           )
         }
       });
 
       ReactDOM.render(
-        <SecondComponent name="Maria" />,
+        <SecondComponent name="Maria" location="Spain"/>,
         document.getElementById('app')
       );
     </script>
