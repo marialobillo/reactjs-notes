@@ -6,47 +6,56 @@
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-
   </head>
   <body>
+
+
 
     <div id="app"></div>
 
 
 
     <script type="text/babel">
-      var NameStateComponent = React.createClass({
-        resetName: function(){
+      var CounterChallenge = React.createClass({
+        addOne: function(){
           this.setState({
-             name: ''
+            number: this.state.number + 1
           })
         },
-        nameChange: function(event){
+        addFive: function(){
           this.setState({
-            name: event.target.value
+            number: this.state.number + 5
+          })
+        },
+        addTen: function(){
+          this.setState({
+            number: this.state.number + 10
           })
         },
         getInitialState: function(){
           return {
-            name: ''
+            number: 0
           }
         },
         render: function(){
-          return(
-
+          return (
             <div>
-              <input type="text" onChange={this.nameChange} />
-              <h1>Hello my name is {this.state.name}</h1>
-              <button onClick={this.resetName}>Reset Name</button>
+              <p>Count:{this.state.number}</p>
+              <p>
+                <button onClick={this.addOne}>Add 1</button>
+                <button onClick={this.addFive}>Add 5</button>
+                <button onClick={this.addTen}>Add 10</button>
+              </p>
             </div>
           )
         }
       });
 
       ReactDOM.render(
-        <NameStateComponent />,
+        <CounterChallenge />,
         document.getElementById('app')
       );
+
     </script>
   </body>
 </html>
