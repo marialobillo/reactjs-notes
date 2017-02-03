@@ -6,6 +6,7 @@
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -40,12 +41,9 @@
         render: function(){
           return (
             <div>
-              <h2>Count:{this.state.number}</h2>
-              <p>
-                <button onClick={this.addOne}>Add 1</button>
-                <button onClick={this.addFive}>Add 5</button>
-                <button onClick={this.addTen}>Add 10</button>
-              </p>
+              <h1 className="blue">This header is .blue</h1>
+              <h1>This header is #red</h1>
+              <h1 className="blue">Another .blue</h1>
             </div>
           )
         }
