@@ -6,12 +6,20 @@
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
   </head>
   <body>
 
 
 
-    <div id="app"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+          <div id="app"></div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -42,9 +50,9 @@
             <div>
               <h2>Count:{this.state.number}</h2>
               <p>
-                <button onClick={this.addOne}>Add 1</button>
-                <button onClick={this.addFive}>Add 5</button>
-                <button onClick={this.addTen}>Add 10</button>
+                <button className="btn btn-success" onClick={this.addOne}>Add 1</button>
+                <button className="btn btn-warning" onClick={this.addFive}>Add 5</button>
+                <button className="btn btn-danger" onClick={this.addTen}>Add 10</button>
               </p>
             </div>
           )
