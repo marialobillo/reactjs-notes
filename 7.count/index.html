@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>React Tutorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <script src="../bootstrap/js/bootstrap.min.js"></script>
+
   </head>
   <body>
 
@@ -25,34 +27,26 @@
 
     <script type="text/babel">
       var CounterChallenge = React.createClass({
-        addOne: function(){
-          this.setState({
-            number: this.state.number + 1
-          })
-        },
-        addFive: function(){
-          this.setState({
-            number: this.state.number + 5
-          })
-        },
-        addTen: function(){
-          this.setState({
-            number: this.state.number + 10
-          })
-        },
         getInitialState: function(){
           return {
-            number: 0
+            count: 0
           }
+        },
+        incrementCount: function(value){
+          console.log(this)
+          this.setState({
+            count: this.state.count + value
+          })
         },
         render: function(){
           return (
-            <div>
-              <h2>Count:{this.state.number}</h2>
+            <div class="container">
+              <h2>Count:{this.state.count}</h2>
               <p>
-                <button className="btn btn-success" onClick={this.addOne}>Add 1</button>
-                <button className="btn btn-warning" onClick={this.addFive}>Add 5</button>
-                <button className="btn btn-danger" onClick={this.addTen}>Add 10</button>
+                <button className="btn btn-success" onClick={this.incrementCount.bind(this, 1)}>Add 1</button>
+                <button className="btn btn-warning" onClick={this.incrementCount.bind(this, 5)}>Add 5</button>
+                <button className="btn btn-danger" onClick={this.incrementCount.bind(this, 10)}>Add 10</button>
+
               </p>
             </div>
           )
