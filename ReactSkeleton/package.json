@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/juanortiz10/ReactSkeleton.git"
+    "url": ""
   },
   "author": "Juan Ortiz Jr.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/juanortiz10/ReactSkeleton/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/juanortiz10/ReactSkeleton#readme",
+  "homepage": "",
   "dependencies": {
     "babel": "^6.5.2",
     "babel-preset-react": "^6.11.1",
