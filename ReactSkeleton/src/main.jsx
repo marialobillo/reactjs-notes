@@ -1,4 +1,5 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var List = require('./components/List.jsx');
 
-ReactDOM.render(/**/, document.getElementById('main'));
+ReactDOM.render(<List/>, document.getElementById('main'));
