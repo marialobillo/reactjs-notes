@@ -20555,10 +20555,20 @@ module.exports = ResultBox;
 var React = require('react');
 
 var InputItem = React.createClass({
-  displayName: "InputItem",
+  displayName: 'InputItem',
 
+  getInitialState: function () {
+    return {
+      value: ''
+    };
+  },
+  onChange: function () {
+    this.setState({
+      value: event.target.value
+    });
+  },
   render: function () {
-    return React.createElement("input", { type: "text" });
+    return React.createElement('input', { type: 'text', onChange: this.onChange, value: this.state.value });
   }
 });
 
