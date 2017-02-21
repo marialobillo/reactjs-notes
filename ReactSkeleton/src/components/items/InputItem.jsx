@@ -16,7 +16,8 @@ var InputItem = React.createClass({
   },
   render: function(){
     return (
-      <input type="text" onChange={this.onChange} value={this.state.value} />
+      <input type="text" onChange={this.onChange}
+        value={this.state.value} />
     );
   }
 });

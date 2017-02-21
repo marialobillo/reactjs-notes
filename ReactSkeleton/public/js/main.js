@@ -20517,14 +20517,19 @@ var InputBox = React.createClass({
   getInitialState: function () {
     return {
       button_title: "Add",
-      output: ''
+      output: '',
+      items: []
     };
   },
   onClick: function (event) {
+
     if (this.refs.input_task.getValue() == "") {
       this.setState({ output: "Please write a task." });
     } else {
-      this.setState({ output: "OK! Great!" });
+      this.setState({
+        output: "OK! Great!",
+        items: this.state.items.concat(this.refs.input_task.getValue())
+      });
     }
   },
   render: function () {
@@ -20544,7 +20549,8 @@ var InputBox = React.createClass({
         'label',
         null,
         this.state.output
-      )
+      ),
+      React.createElement(ResultBox, null)
     );
   }
 });
@@ -20585,7 +20591,8 @@ var InputItem = React.createClass({
     return this.state.value;
   },
   render: function () {
-    return React.createElement('input', { type: 'text', onChange: this.onChange, value: this.state.value });
+    return React.createElement('input', { type: 'text', onChange: this.onChange,
+      value: this.state.value });
   }
 });
 
