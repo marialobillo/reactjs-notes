@@ -20513,11 +20513,24 @@ var InputItem = require('../items/InputItem.jsx');
 var InputBox = React.createClass({
   displayName: 'InputBox',
 
+  getInitialState: function () {
+    return {
+      button_title: "Add"
+    };
+  },
+  onClick: function (event) {
+    console.log("Hi I'm the event");
+  },
   render: function () {
     return React.createElement(
       'div',
       { className: 'row' },
-      React.createElement(InputItem, null)
+      React.createElement(InputItem, null),
+      React.createElement(
+        'button',
+        { id: 'myId', type: 'button', onClick: this.onClick },
+        this.state.button_title
+      )
     );
   }
 });
