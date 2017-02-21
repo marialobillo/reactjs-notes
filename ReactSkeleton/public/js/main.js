@@ -20568,13 +20568,13 @@ var ResultBox = React.createClass({
     return React.createElement(
       'div',
       { className: 'row' },
-      this.props.items.map(function (currentValue, index, array) {
-        return React.createElement(
-          'label',
-          null,
-          currentValue
-        );
-      })
+      React.createElement(
+        'ul',
+        null,
+        this.props.items.map(function (currentValue, index, array) {
+          return React.createElement(ResultItem, { name: currentValue, key: index });
+        })
+      )
     );
   }
 });
@@ -20609,8 +20609,23 @@ var InputItem = React.createClass({
 module.exports = InputItem;
 
 },{"react":177}],182:[function(require,module,exports){
+var React = require('react');
 
-},{}],183:[function(require,module,exports){
+var ResultItem = React.createClass({
+  displayName: 'ResultItem',
+
+  render: function () {
+    return React.createElement(
+      'li',
+      null,
+      this.props.name
+    );
+  }
+});
+
+module.exports = ResultItem;
+
+},{"react":177}],183:[function(require,module,exports){
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Box = require('./components/boxes/Box.jsx');
