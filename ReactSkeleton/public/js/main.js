@@ -20550,7 +20550,7 @@ var InputBox = React.createClass({
         null,
         this.state.output
       ),
-      React.createElement(ResultBox, null)
+      React.createElement(ResultBox, { name: this.state.items })
     );
   }
 });
@@ -20565,7 +20565,17 @@ var ResultBox = React.createClass({
   displayName: 'ResultBox',
 
   render: function () {
-    return React.createElement('div', { className: 'row' });
+    return React.createElement(
+      'div',
+      { className: 'row' },
+      this.props.items.map(function (currentValue, index, array) {
+        return React.createElement(
+          'label',
+          null,
+          currentValue
+        );
+      })
+    );
   }
 });
 

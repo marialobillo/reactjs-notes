@@ -11,7 +11,7 @@ var InputBox = React.createClass({
     };
   },
   onClick: function(event){
-    
+
     if(this.refs.input_task.getValue() == ""){
       this.setState({output: "Please write a task."})
     } else{
@@ -30,7 +30,7 @@ var InputBox = React.createClass({
           onClick={this.onClick}>{this.state.button_title}</button>
           <br/>
           <label>{this.state.output}</label>
-          <ResultBox />
+          <ResultBox name={this.state.items} />
       </div>
     );
   }
