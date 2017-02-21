@@ -20509,27 +20509,41 @@ module.exports = Box;
 },{"../boxes/InputBox.jsx":179,"../boxes/ResultBox.jsx":180,"react":177}],179:[function(require,module,exports){
 var React = require('react');
 var InputItem = require('../items/InputItem.jsx');
+var ResultBox = require('./ResultBox.jsx');
 
 var InputBox = React.createClass({
   displayName: 'InputBox',
 
   getInitialState: function () {
     return {
-      button_title: "Add"
+      button_title: "Add",
+      output: ''
     };
   },
   onClick: function (event) {
-    console.log("Hi I'm the event");
+    if (this.refs.input_task.getValue() == "") {
+      this.setState({ output: "Please write a task." });
+    } else {
+      this.setState({ output: "OK! Great!" });
+    }
   },
   render: function () {
     return React.createElement(
       'div',
       { className: 'row' },
-      React.createElement(InputItem, null),
+      React.createElement(InputItem, { ref: 'input_task' }),
       React.createElement(
         'button',
-        { id: 'myId', type: 'button', onClick: this.onClick },
+        { id: 'myId',
+          type: 'button',
+          onClick: this.onClick },
         this.state.button_title
+      ),
+      React.createElement('br', null),
+      React.createElement(
+        'label',
+        null,
+        this.state.output
       )
     );
   }
@@ -20537,7 +20551,7 @@ var InputBox = React.createClass({
 
 module.exports = InputBox;
 
-},{"../items/InputItem.jsx":181,"react":177}],180:[function(require,module,exports){
+},{"../items/InputItem.jsx":181,"./ResultBox.jsx":180,"react":177}],180:[function(require,module,exports){
 var React = require('react');
 var ResultItem = require('../items/ResultItem.jsx');
 
@@ -20566,6 +20580,9 @@ var InputItem = React.createClass({
     this.setState({
       value: event.target.value
     });
+  },
+  getValue: function () {
+    return this.state.value;
   },
   render: function () {
     return React.createElement('input', { type: 'text', onChange: this.onChange, value: this.state.value });
