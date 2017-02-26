@@ -4,9 +4,9 @@ import './index.css';
 
 var Greeting = React.createClass({
   render: function(){
-    var username = false;
+    var username = ['Maria', 'Lobillo'];
     return (
-      <div>Hello {username}</div>
+      <div>Hello {username[1]}, {username[0]} {'hi'}</div>
     );
   }
 });
