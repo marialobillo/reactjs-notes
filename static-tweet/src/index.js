@@ -21,7 +21,7 @@ var ReplyButton = React.createClass({
 var RetweetButton = React.createClass({
   render: function(){
     return (
-      <i className="fa fa-retweet-button"/>
+      <i className="fa fa-retweet"/>
     );
   }
 });
