@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import moment from 'moment';
 import './index.css';
 
 var Time = React.createClass({
+  computeTimeString: function(){
+    return moment(this.props.time).fromNow();
+  },
   render: function(){
     return(
-      <span className="time">3h ago</span>
+      <span className="time">
+        {this.computeTimeString()}
+      </span>
     );
   }
 });
@@ -55,10 +61,11 @@ var Message = React.createClass({
 
 var NameWithHandle =React.createClass({
   render: function(){
+    var { name, handle } = this.props.author;
     return (
       <span className="name-with-handle">
-        <span className="name">Your Name</span>
-        <span className="handle">@yourhandle</span>
+        <span className="name">{name}</span>
+        <span className="handle">@{handle}</span>
       </span>
     );
   }
