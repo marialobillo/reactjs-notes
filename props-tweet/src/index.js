@@ -87,13 +87,14 @@ var Avatar = React.createClass({
 
 var Tweet = React.createClass({
   render: function(){
+    var {tweet} = this.props;
     return (
       <div className="tweet">
-        <Avatar hash={this.props.tweet.gravatar}/>
+        <Avatar hash={tweet.gravatar}/>
         <div className="content">
-          <NameWithHandle author={this.props.tweet.author}/>
-          <Time time={this.props.tweet.timestamp}/>
-          <Message text={this.props.tweet.message}/>
+          <NameWithHandle author={tweet.author}/>
+          <Time time={tweet.timestamp}/>
+          <Message text={tweet.message}/>
           <div className="buttons">
             <ReplyButton/>
             <RetweetButton/>
