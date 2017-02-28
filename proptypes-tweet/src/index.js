@@ -25,6 +25,9 @@ var ReplyButton = React.createClass({
 });
 
 var RetweetButton = React.createClass({
+  propTypes:{
+    count: React.PropTypes.number
+  },
   getCount: function(){
     if(this.props.count > 0){
       return (
@@ -47,6 +50,10 @@ var RetweetButton = React.createClass({
 });
 
 var LikeButton = React.createClass({
+  // Check that count is a number
+  propTypes: {
+    count: React.PropTypes.number
+  },
   render: function(){
     var {count} = this.props;
     return (
@@ -105,23 +112,7 @@ var Avatar = React.createClass({
   }
 });
 
-var Comment = React.createClass({
-  propTypes: {
-    message: React.PropTypes.string.isRequired,
-    author: React.PropTypes.string.isRequired,
-    likes: React.PropTypes.number
-  },
-  render: function() {
-    return (
-      <div>
-        <div className='author'>{this.props.author}</div>
-        <div className='message'>{this.props.message}</div>
-        <div className='likes'>
-          {this.props.likes > 0 ? this.props.likes : 'No'} likes
-        </div>
-      </div>
-  );
-} });
+
 
 var Tweet = React.createClass({
   render: function(){
