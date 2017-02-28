@@ -105,6 +105,24 @@ var Avatar = React.createClass({
   }
 });
 
+var Comment = React.createClass({
+  propTypes: {
+    message: React.PropTypes.string.isRequired,
+    author: React.PropTypes.string.isRequired,
+    likes: React.PropTypes.number
+  },
+  render: function() {
+    return (
+      <div>
+        <div className='author'>{this.props.author}</div>
+        <div className='message'>{this.props.message}</div>
+        <div className='likes'>
+          {this.props.likes > 0 ? this.props.likes : 'No'} likes
+        </div>
+      </div> 
+  );
+} });
+
 var Tweet = React.createClass({
   render: function(){
     var {tweet} = this.props;
