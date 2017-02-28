@@ -25,17 +25,37 @@ var ReplyButton = React.createClass({
 });
 
 var RetweetButton = React.createClass({
+  getCount: function(){
+    if(this.props.count > 0){
+      return (
+        <span className="retweet-count">
+          {this.props.count}
+        </span>
+      );
+    } else{
+      return null;
+    }
+  },
   render: function(){
     return (
-      <i className="fa fa-retweet"/>
+      <span className="retweet-button">
+        <i className="fa fa-retweet"/>
+        {this.getCount()}
+      </span>
     );
   }
 });
 
 var LikeButton = React.createClass({
   render: function(){
+    var {count} = this.props;
     return (
-      <i className="fa fa-heart like-button"/>
+      <span className="like-button">
+        <i className="fa fa-heart like-button"/>
+        {count > 0 ?
+        <span className="like-count">{count}</span>
+        : null}
+      </span>
     );
   }
 });
