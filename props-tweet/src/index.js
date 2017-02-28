@@ -98,8 +98,8 @@ var Tweet = React.createClass({
           <div className="buttons">
             <ReplyButton/>
             <RetweetButton/>
-            <LikeButton/>
-            <MoreOptionsButton/>
+            <LikeButton count={tweet.retweets}/>
+            <MoreOptionsButton count={tweet.likes}/>
           </div>
         </div>
       </div>
