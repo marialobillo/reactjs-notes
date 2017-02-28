@@ -87,6 +87,12 @@ var Message = React.createClass({
 });
 
 var NameWithHandle =React.createClass({
+  propTypes: {
+    author: React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      handle: React.PropTypes.string.isRequired
+    }).isRequired
+  },
   render: function(){
     var { name, handle } = this.props.author;
     return (
