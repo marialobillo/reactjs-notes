@@ -32,13 +32,27 @@ var Subject = React.createClass({
   }
 });
 
+var Check = React.createClass({
+  render: function(){
+    return (
+      <div className="checking">
+        <input type="checkbox" />
+      </div>
+    );
+  }
+});
+
 var Inbox = React.createClass({
   render: function(){
     return (
       <div className="container">
-        <Message text={this.props.info.message}/>
-        <Sender name={this.props.info.sender}/>
-        <Subject topic={this.props.info.subject}/>
+        <div className="inbox">
+          <Check />
+
+          <Sender name={this.props.info.sender}/>
+          <Subject topic={this.props.info.subject}/>
+          <Message text={this.props.info.message}/>
+        </div>
       </div>
     );
   }
