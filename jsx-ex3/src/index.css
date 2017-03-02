@@ -2,55 +2,63 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #2c3e50;
+  background-color: #fff;
 }
 
-.envelope{
-  background-color: white;
-  width:70%;
-  margin: 10% auto;
-  padding: 25px;
-  border:1px solid #eee;
-  border-radius: 4px;
+.creditcard{
+  width: 38%;
+  margin: 10% 30%;
+  background-color: #2980b9;
+  border-radius: 20px;
+  padding:20px;
+  font-size: 1.2em;
+  color: #fff;
+  min-height: 300px;
+
 }
 
-.address{
-  margin: 20% 30%;
+.bankname{
+  width:60%;
+  float:right;
+  padding:10px 12px;
+  font-size: 2.5em;
+  font-weight: 700;
 }
 
-.title{
+.numbercard{
+  position:absolute;
+  bottom: 140px;
   font-size: 2em;
+  letter-spacing: 7px;
+  margin-left:15px;
+  font-family: Arial;
+  font-weight: 500;
 }
 
-.author{
-  font-size:1.1em;
+.secretnumber{
+  position:absolute;
+  bottom:115px;
+  margin-left:15px;
 }
 
-ul{
-  list-style: none;
+.valid{
+  position:absolute;
+  bottom: 80px;
+  margin-left: 160px;
+  font-size: 0.75em;
 }
 
-li{
-  padding:10px;
+.validdate{
+  position:absolute;
+  bottom: 77px;
+  letter-spacing: 4px;
+  font-size: 1.9em;
+  margin-left:220px;
 }
 
-.stats{
-
-}
-
-.rating{
-  color: #e74c3c;
-}
-
-.isbn{
-  color: #2980b9;
-}
-
-.returnaddress{
-  padding:30px;
-}
-
-
-.stamp{
-  width: 100px;
+.cardholder{
+  position:absolute;
+  bottom: 30px;
+  margin-left:15px;
+  font-size: 1.3em;
 }
