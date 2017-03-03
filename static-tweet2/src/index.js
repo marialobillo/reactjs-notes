@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Time from './time';
 import './index.css';
 
 
@@ -61,6 +62,9 @@ let FileListItem = React.createClass({
       <tr className="file-list-item">
       {getFileName(file)}
       <CommitMessage commit={file.latestCommit} />
+      <td className="age">
+        <Time time={file.updated_at} />
+      </td>
     </tr>
     );
   }
