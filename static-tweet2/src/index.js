@@ -35,6 +35,32 @@ let FileListItem = React.createClass({
   }
 });
 
+function FileIcon({file}){
+  let icon = 'fa-file-text-o';
+  if(file.type == 'folder'){
+    icon = 'fa-folder';
+  }
+
+  return (
+    <td className="file-icon">
+      <i className={`fa ${icon}`}/>
+    </td>
+  );
+}
+
+FileIcon.propTypes = {
+    file: React.PropTypes.object.isRequired
+};
+
+function getFileName(file){
+  return [
+    <div>
+    <FileIcon file={file} key={0}/>
+    <td className="file-name" key={1}>{file.name}</td>
+  </div>
+  ];
+}
+
 const testFiles = [
   {
     id: 1,
