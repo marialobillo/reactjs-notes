@@ -29,7 +29,8 @@ let FileListItem = React.createClass({
     var {file} = this.props;
     return (
       <tr className="file-lits-item">
-        <td className="file-name">{file.name}</td>
+        <FileIcon file={file} key={0}/>
+        {getFileName(file)}
       </tr>
     );
   }
@@ -37,7 +38,7 @@ let FileListItem = React.createClass({
 
 function FileIcon({file}){
   let icon = 'fa-file-text-o';
-  if(file.type == 'folder'){
+  if(file.type === 'folder'){
     icon = 'fa-folder';
   }
 
@@ -54,10 +55,8 @@ FileIcon.propTypes = {
 
 function getFileName(file){
   return [
-    <div>
-    <FileIcon file={file} key={0}/>
     <td className="file-name" key={1}>{file.name}</td>
-  </div>
+
   ];
 }
 
