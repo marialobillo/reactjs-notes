@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #fff;
+}
+
+.container{
+  width:70%;
+  margin: 10% auto;
+}
+
+.inbox{
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  padding: 12px 0;
+}
+
+.checking{
+  height: 100%;
+  display: inline;
+}
+
+.message{
+  position:relative;
+  float:right;
+  
+  width:80%;
+}
+
+.sender{
+  display: inline;
+  width:30%;
+  padding: 0 60px;
+}
+
+.subject {
+  display:inline;
+  width:30%;
+  padding: 0 60px;
+
+}
