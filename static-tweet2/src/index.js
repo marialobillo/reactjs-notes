@@ -2,63 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-let FileList = React.createClass({
-  propTypes: {
-    files: React.PropTypes.array
-  },
-  render(){
-    let files = this.props.files;
-    return (
-      <table className="file-list">
-        <tbody>
-          {files.map(file => (
-
-            <FileListItem key={file.id} file={file}/>
-          ))}
-        </tbody>
-      </table>
-    );
-  }
-});
-
-let FileListItem = React.createClass({
-  propTypes: {
-    file: React.PropTypes.object.isRequired
-  },
-  render(){
-    var {file} = this.props;
-    return (
-      <tr className="file-lits-item">
-        <FileIcon file={file} key={0}/>
-        {getFileName(file)}
-      </tr>
-    );
-  }
-});
-
-function FileIcon({file}){
-  let icon = 'fa-file-text-o';
-  if(file.type === 'folder'){
-    icon = 'fa-folder';
-  }
-
-  return (
-    <td className="file-icon">
-      <i className={`fa ${icon}`}/>
-    </td>
-  );
-}
-
-FileIcon.propTypes = {
-    file: React.PropTypes.object.isRequired
-};
-
-function getFileName(file){
-  return [
-    <td className="file-name" key={1}>{file.name}</td>
-
-  ];
-}
 
 const testFiles = [
   {
@@ -89,6 +32,71 @@ const testFiles = [
     }
   },
 ];
+
+let FileList = React.createClass({
+  propTypes: {
+    files: React.PropTypes.array
+  },
+  render(){
+    let files = this.props.files;
+    return (
+      <table className="file-list">
+        <tbody>
+          {files.map(file =>
+            <FileListItem key={file.id} file={file}/>
+          )}
+        </tbody>
+      </table>
+    );
+  }
+});
+
+let FileListItem = React.createClass({
+  propTypes: {
+    file: React.PropTypes.object.isRequired
+  },
+  render(){
+    var {file} = this.props;
+    return (
+      <tr className="file-list-item">
+      {getFileName(file)}
+      <CommitMessage commit={file.latestCommit} />
+    </tr>
+    );
+  }
+});
+
+function CommitMessage({commit}){
+  return (
+    <td className="commit-message">{commit.message}</td>
+  );
+}
+CommitMessage.propTypes = {
+  commit: React.PropTypes.object.isRequired
+}
+
+function FileIcon({file}){
+  let icon = 'fa-file-text-o';
+  if(file.type === 'folder'){
+    icon = 'fa-folder';
+  }
+  return (
+    <td className="file-icon">
+      <i className={`fa ${icon}`}/>
+    </td>
+  );
+}
+FileIcon.propTypes = {
+  file: React.PropTypes.object.isRequired
+};
+
+function getFileName(file){
+  return [
+    <FileIcon file={file} key={0}/>,
+    <td className="file-name" key={1}>{file.name}</td>
+  ];
+}
+
 
 
 ReactDOM.render(
