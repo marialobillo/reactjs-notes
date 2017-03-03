@@ -12,12 +12,23 @@ let FileList = React.createClass({
       <table className="file-list">
         <tbody>
           {files.map(file => (
-            <tr className="file-list-item" key={file.id}>
-              <td className="file-name">{file.name}</td>
-            </tr>
+
+            <FileListItem key={file.id} file={file}/>
           ))}
         </tbody>
       </table>
+    );
+  }
+});
+
+let FileListItem = React.createClass({
+  propTypes: {
+    file: React.PropTypes.object.isRequired
+  },
+  render(){
+    var {file} = this.props;
+    return (
+      
     );
   }
 });
