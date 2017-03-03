@@ -28,7 +28,9 @@ let FileListItem = React.createClass({
   render(){
     var {file} = this.props;
     return (
-      
+      <tr className="file-lits-item">
+        <td className="file-name">{file.name}</td>
+      </tr>
     );
   }
 });
