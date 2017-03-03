@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import './index.css';
 
 let FileList = React.createClass({
@@ -21,9 +20,9 @@ let FileList = React.createClass({
       </table>
     );
   }
-})
+});
 
-conts testFiles = [
+const testFiles = [
   {
     id: 1,
     name: 'src',
@@ -55,6 +54,6 @@ conts testFiles = [
 
 
 ReactDOM.render(
-  <App />,
+  <FileList files={testFiles}/>,
   document.getElementById('root')
 );
