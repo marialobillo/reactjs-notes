@@ -41,13 +41,13 @@ let FileList = React.createClass({
   render(){
     let files = this.props.files;
     return (
-      <table className="file-list">
-        <tbody>
+      <div className="file-list">
+        <div>
           {files.map(file =>
             <FileListItem key={file.id} file={file}/>
           )}
-        </tbody>
-      </table>
+        </div>
+      </div>
     );
   }
 });
@@ -59,20 +59,20 @@ let FileListItem = React.createClass({
   render(){
     var {file} = this.props;
     return (
-      <tr className="file-list-item">
+      <div className="file-list-item">
       {getFileName(file)}
       <CommitMessage commit={file.latestCommit} />
-      <td className="age">
+      <div className="age">
         <Time time={file.updated_at} />
-      </td>
-    </tr>
+      </div>
+    </div>
     );
   }
 });
 
 function CommitMessage({commit}){
   return (
-    <td className="commit-message">{commit.message}</td>
+    <div className="commit-message">{commit.message}</div>
   );
 }
 CommitMessage.propTypes = {
@@ -85,9 +85,9 @@ function FileIcon({file}){
     icon = 'fa-folder';
   }
   return (
-    <td className="file-icon">
+    <div className="file-icon">
       <i className={`fa ${icon}`}/>
-    </td>
+    </div>
   );
 }
 FileIcon.propTypes = {
@@ -97,7 +97,7 @@ FileIcon.propTypes = {
 function getFileName(file){
   return [
     <FileIcon file={file} key={0}/>,
-    <td className="file-name" key={1}>{file.name}</td>
+    <div className="file-name" key={1}>{file.name}</div>
   ];
 }
 
