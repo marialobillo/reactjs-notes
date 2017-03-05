@@ -1,5 +1,6 @@
 import React from 'react';
 import CommitMessage from './CommitMessage';
+import getFileName from './getFileName';
 import Time from './time';
 
 let FileListItem = React.createClass({

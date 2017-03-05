@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Time from './time';
 import CommitMessage from './CommitMessage';
 import FileListItem from './FileListItem';
+
 import './index.css';
 
 
@@ -56,27 +57,8 @@ let FileList = React.createClass({
 
 
 
-function FileIcon({file}){
-  let icon = 'fa-file-text-o';
-  if(file.type === 'folder'){
-    icon = 'fa-folder';
-  }
-  return (
-    <div className="file-icon">
-      <i className={`fa ${icon}`}/>
-    </div>
-  );
-}
-FileIcon.propTypes = {
-  file: React.PropTypes.object.isRequired
-};
 
-function getFileName(file){
-  return [
-    <FileIcon file={file} key={0}/>,
-    <div className="file-name" key={1}>{file.name}</div>
-  ];
-}
+
 
 
 
