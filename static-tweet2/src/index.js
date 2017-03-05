@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Time from './time';
+import CommitMessage from './CommitMessage';
+import FileListItem from './FileListItem';
 import './index.css';
 
 
@@ -52,32 +54,7 @@ let FileList = React.createClass({
   }
 });
 
-let FileListItem = React.createClass({
-  propTypes: {
-    file: React.PropTypes.object.isRequired
-  },
-  render(){
-    var {file} = this.props;
-    return (
-      <div className="file-list-item">
-      {getFileName(file)}
-      <CommitMessage commit={file.latestCommit} />
-      <div className="age">
-        <Time time={file.updated_at} />
-      </div>
-    </div>
-    );
-  }
-});
 
-function CommitMessage({commit}){
-  return (
-    <div className="commit-message">{commit.message}</div>
-  );
-}
-CommitMessage.propTypes = {
-  commit: React.PropTypes.object.isRequired
-}
 
 function FileIcon({file}){
   let icon = 'fa-file-text-o';
