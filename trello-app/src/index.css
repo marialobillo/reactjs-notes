@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.content{
+  background-color: #eee;
+  width: 300px;
+  border-radius: 10px;
+  margin:10px;
+  padding: 4px 15px;
+}
+
+.item{
+  background-color: #fff;
+  border-radius: 5px;
+  padding:10px;
+  margin:5px;
+  box-shadow: 2px 2px 2px #bbb;
+}
+
+.texto{
+  color:#bbb;
+  padding:10px;
+  margin:5px;
+}

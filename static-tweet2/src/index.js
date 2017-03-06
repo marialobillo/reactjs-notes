@@ -57,11 +57,6 @@ let FileList = React.createClass({
 
 
 
-
-
-
-
-
 ReactDOM.render(
   <FileList files={testFiles}/>,
   document.getElementById('root')
