@@ -86,14 +86,27 @@ var News = React.createClass({
   render(){
     let items = this.props.items;
     return (
-      <div>
-        <div>
+      <div className="content">
+        <div className="bar-menu">
+          <span className="title"><strong>Hacker News</strong></span>
+          <div className="top-menu">
+            <span><a href="">new</a></span>
+            <span><a href=""> |  comments</a></span>
+            <span><a href=""> |  show</a></span>
+            <span><a href=""> |  ask</a></span>
+            <span><a href=""> |  jobs</a></span>
+            <span><a href=""> |  submit</a></span>
+            <span className="login"><a href="">login</a></span>
+
+          </div>
+        </div>
+        <div className="ListItem">
           {items.map(item =>
             <div key={item.id} className="item">
               <div className="identifier">
-                {item.id}
+                {item.id}.
               </div>
-              <div className="title">
+              <div className="item-title">
                 {item.title}
               </div>
               <div className="info">
