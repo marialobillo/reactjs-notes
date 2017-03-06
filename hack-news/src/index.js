@@ -79,6 +79,49 @@ var testItems = [
 }
 ];
 
+var TopMenu = React.createClass({
+  render(){
+    return (
+      <div className="top-menu">
+        <span><a href="">new</a></span>
+        <span><a href=""> |  comments</a></span>
+        <span><a href=""> |  show</a></span>
+        <span><a href=""> |  ask</a></span>
+        <span><a href=""> |  jobs</a></span>
+        <span><a href=""> |  submit</a></span>
+        <span className="login"><a href="">login</a></span>
+
+      </div>
+    );
+  }
+});
+
+var ItemList = React.createClass({
+  propTypes: {
+    item: React.PropTypes.object.isRequired
+  },
+  render(){
+    var {item} = this.props;
+    return (
+
+      <div key={item.id} className="item">
+        <div className="identifier">
+          {item.id}.
+        </div>
+        <div className="item-title">
+          {item.title}
+        </div>
+        <div className="info">
+          <span>{item.points} points</span>
+          <span> by {item.author}</span> |
+          <span> {item.comments} comments</span>
+
+
+        </div>
+      </div>
+    );
+  }
+});
 var News = React.createClass({
   propTypes: {
     items: React.PropTypes.array
@@ -89,34 +132,11 @@ var News = React.createClass({
       <div className="content">
         <div className="bar-menu">
           <span className="title"><strong>Hacker News</strong></span>
-          <div className="top-menu">
-            <span><a href="">new</a></span>
-            <span><a href=""> |  comments</a></span>
-            <span><a href=""> |  show</a></span>
-            <span><a href=""> |  ask</a></span>
-            <span><a href=""> |  jobs</a></span>
-            <span><a href=""> |  submit</a></span>
-            <span className="login"><a href="">login</a></span>
-
-          </div>
+          <TopMenu />
         </div>
         <div className="ListItem">
           {items.map(item =>
-            <div key={item.id} className="item">
-              <div className="identifier">
-                {item.id}.
-              </div>
-              <div className="item-title">
-                {item.title}
-              </div>
-              <div className="info">
-                <span>{item.points} points</span>
-                <span> by {item.author}</span> |
-                <span> {item.comments} comments</span>
-
-
-              </div>
-            </div>
+            <ItemList item={item} />
           )}
         </div>
       </div>
