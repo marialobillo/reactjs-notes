@@ -16,8 +16,8 @@ class App extends Component {
   renderContent(){
     switch(this.state.selectedTab){
       default:
-        case 0: return <span>Items</span>;
-        case 1: return <span>Cart</span>;
+      case 0: return <span>Items</span>;
+      case 1: return <span>Cart</span>;
     }
   }
 
