@@ -1,7 +1,7 @@
 import React from 'react';
 import './ItemPage.css';
 
-function ItemPage({item}){
+function ItemPage({items}){
   return (
     <ul className="ItemPage-items">
       {items.map(item =>
