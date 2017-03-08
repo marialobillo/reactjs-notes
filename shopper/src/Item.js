@@ -16,4 +16,11 @@ let Item = ({item, onAddToCart}) => (
       </div>
     </div>
   </div>
-)
+);
+
+Item.propTypes = {
+  item: React.PropTypes.object.isRequired,
+  onAddToCart: React.PropTypes.func.inRequired
+};
+
+export default Item;
