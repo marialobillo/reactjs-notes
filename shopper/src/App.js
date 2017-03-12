@@ -1,18 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Nav from './Nav';
 import './App.css';
 
 class App extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = {
+      selectedTab: 0
+    };
+  }
+
+  selectTab = (index) => {
+    this.setState({selectedTab: index});
+  }
+
+  renderContent() {
+    switch(this.state.selectedTab){
+      default:
+      case 0: return <span>Items</span>;
+      case 1: return <span>Cart</span>;
+    }
+  }
+
+  render(){
+    let {selectedTab} = this.state;
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Nav selectedTab={selectedTab} onTabChange={this.selectTab}/>
+        <main className="App-content">
+          {this.renderContent()}
+        </main>
       </div>
     );
   }
