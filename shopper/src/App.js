@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 import './App.css';
+import ItemPage from './ItemPage';
+import {items} from './static-data';
 
 class App extends Component {
   constructor(props){
@@ -17,7 +19,7 @@ class App extends Component {
   renderContent() {
     switch(this.state.selectedTab){
       default:
-      case 0: return <span>Items</span>;
+      case 0: return <ItemPage items={items}/>
       case 1: return <span>Cart</span>;
     }
   }
