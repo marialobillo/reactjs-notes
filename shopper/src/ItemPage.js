@@ -1,4 +1,5 @@
 import React from 'react';
+import Item from './Item';
 import './ItemPage.css';
 
 function ItemPage({items}){
