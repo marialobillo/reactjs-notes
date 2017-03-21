@@ -1,7 +1,11 @@
-@Lifts =React.createClass
+@Lifts = React.createClass
+  getInitialState: ->
+    lifts: @props.date
+  getDefaultProps: ->
+    
   render: ->
-    React.DOM.div
+    div
       className: 'lifts'
-      React.DOM.h1
+      h2
         className: 'title'
-          'Lifts'
+        'Lifts'
