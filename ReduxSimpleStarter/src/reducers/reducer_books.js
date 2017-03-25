@@ -5,6 +5,5 @@ export default function(){
     {title: 'The two towers'},
     {title: 'The wishperer of the horses'},
     {title: 'Eloquent Ruby'}
-
   ]
 }
