@@ -26,4 +26,6 @@ describe("Investment", function(){
   it("should have a cost", function(){
     expect(investment.cost).toEqual(2000);
   });
+
+  describe("")
 });
