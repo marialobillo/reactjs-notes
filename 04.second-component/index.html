@@ -13,16 +13,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
 
     <script type="text/babel">
-      var FirstComponent = React.createClass({
+      var SecondComponent = React.createClass({
         render: function(){
+          let name = this.props.name;
+          let location = this.props.location;
           return (
-            <h1>This is our first Component!!</h1>
+            <div>
+            <h1>Hello, {name}!</h1>
+            <p>I live in {location}</p>
+            </div>
           )
         }
       });
 
       ReactDOM.render(
-        <FirstComponent />,
+        <SecondComponent name="Maria" location="Spain"/>,
         document.getElementById('app')
       );
     </script>
