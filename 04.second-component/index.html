@@ -18,6 +18,12 @@
           name: React.PropTypes.string,
           location: React.PropTypes.string.isRequired
         },
+        getDefaultProps(){
+          return {
+            name: 'Peter',
+            location: 'New York'
+          }
+        },
         render: function(){
           let name = this.props.name;
           let location = this.props.location;
@@ -31,7 +37,7 @@
       });
 
       ReactDOM.render(
-        <SecondComponent name="Maria" location="Spain"/>,
+        <SecondComponent name="Maria"/>,
         document.getElementById('app')
       );
     </script>
