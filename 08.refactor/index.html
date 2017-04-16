@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1 class="text-center">Sum 1, 5, 10</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-mf-offset-3">
+          <div id="app"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <script type="text/babel">
+      var SumComponent = React.createClass({
+        getInitialState: function(){
+          return {
+            total: 0
+          }
+        },
+        getDefaultProps: function(){
+          return {
+            valueOne: 1,
+            valueTwo: 5,
+            valueThree: 10
+          }
+        },
+        sumNumber: function(value){
+          this.setState({
+            total: this.state.total + value
+          })
+        },
+        resetSum: function(){
+          this.setState({
+            total: 0
+          })
+        },
+        render: function(){
+          return (
+            <div>
+              <h2 className="text-center">Total: {this.state.total}</h2>
+              <Button value={this.props.valueOne} clickHandler={this.sumNumber.bind(this, this.props.valueOne)} />
+
+              <button className="btn btn-danger" onClick={this.resetSum}>Reset</button>
+
+            </div>
+          )
+        }
+      });
+
+      var Button = function(props){
+        return(
+          <button value={props.value} onClick={props.clickHandler}>Add {props.value}</button>
+        )
+      }
+
+      ReactDOM.render(
+        <SumComponent />,
+        document.getElementById('app')
+      );
+    </script>
+  </body>
+</html>
