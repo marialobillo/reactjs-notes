@@ -52,7 +52,9 @@
           return (
             <div>
               <h2 className="text-center">Total: {this.state.total}</h2>
-              <Button value={this.props.valueOne} clickHandler={this.sumNumber.bind(this, this.props.valueOne)} />
+              <Button style="btn btn-info" value={this.props.valueOne} clickHandler={this.sumNumber.bind(this, this.props.valueOne)} />
+              <Button style="btn btn-warning" value={this.props.valueTwo} clickHandler={this.sumNumber.bind(this, this.props.valueTwo)} />
+              <Button style="btn btn-success" value={this.props.valueThree} clickHandler={this.sumNumber.bind(this, this.props.valueThree)} />
 
               <button className="btn btn-danger" onClick={this.resetSum}>Reset</button>
 
@@ -63,7 +65,7 @@
 
       var Button = function(props){
         return(
-          <button value={props.value} onClick={props.clickHandler}>Add {props.value}</button>
+          <button value={props.value} onClick={props.clickHandler} className={props.style}>Add {props.value}</button>
         )
       }
 
