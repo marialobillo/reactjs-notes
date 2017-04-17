@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-mf-offset-3">
+          <div id="app"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <script type="text/babel">
+      var LifecycleComponent = React.createClass({
+        increment: function(){
+          this.setState({
+            count: this.state.count + 1
+          })
+        },
+        getDefaultProps: function(){
+          console.log("Getting our default properties");
+        },
+        getInitialState: function(){
+          return({
+            count: 0
+          })
+        },
+        componentWillMount: function(){
+          console.log(this.state);
+          console.log(this.props);
+        },
+        render: function(){
+          return (
+            <button onClick={this.increment}>{this.state.count}</button>
+          )
+        },
+        componentDidMount(){
+          
+        }
+      });
+
+      ReactDOM.render(
+        <LifecycleComponent />,
+        document.getElementById('app')
+      );
+
+    </script>
+  </body>
+</html>
