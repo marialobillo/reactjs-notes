@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Tutorial</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-mf-offset-3">
+          <div id="app"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+
+    <script type="text/babel">
+      var LikesComponent = React.createClass({
+        getDefaultProps: function(){
+          return ({
+            likes: 0
+          })
+        },
+        getInitialState: function(){
+          return ({
+            popular: false
+          })
+        },
+        updateLikes: function(){
+          ReactDOM.render(
+            <LikesComponent likes={this.props.likes + 1} />,
+            document.getElementById('app')
+          )
+        },
+        componentWillReceiveProps: function(nextProps){
+          console.log(nextProps);
+          this.setState({
+            popular: nextProps.likes >= 10
+          })
+        },
+        shouldComponentUpdate: function(nextProps, nextState){
+          console.log("Should Update");
+          return nextProps.likes % 2 === 0;
+        },
+        componentDidUpdate: function (prevProps, prevState) {
+          console.log("Previous Props", prevProps);
+          console.log("Previous State", prevState);
+        },
+        render: function(){
+          return (
+            <div className="container">
+              <h1>{this.state.popular ? "I'm popular" : null} </h1>
+              <button className="btn btn-primary" onClick={this.updateLikes}>Likes {this.props.likes}</button>
+            </div>
+          )
+        }
+      });
+
+      ReactDOM.render(
+        <LikesComponent />,
+        document.getElementById('app')
+      );
+    </script>
+  </body>
+</html>
