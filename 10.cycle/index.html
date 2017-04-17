@@ -43,13 +43,39 @@
             <button onClick={this.increment}>{this.state.count}</button>
           )
         },
-        componentDidMount(){
-          
+        componentDidMount: function(){
+          this.interval =setInterval(this.increment, 1000);
+        },
+        componentWillUnmount: function(){
+          clearInterval(this.interval);
+          console.log('Component Unmounted!!');
+        }
+      });
+
+      var LifecycleContainer = React.createClass({
+        mount: function(){
+          ReactDOM.render(
+            <LifecycleComponent />,
+            document.getElementById('renderHere')
+          )
+        },
+        unmount: function(){
+          ReactDOM.unmountComponentAtNode(document.getElementById('renderHere'));
+        },
+        render: function(){
+          console.log("Life cycle Container Render");
+          return (
+            <div>
+              <button onClick={this.mount}>Mount</button>
+              //<button onClick={this.unmount}>UnMount</button>
+              <div id="renderHere"></div>
+            </div>
+          )
         }
       });
 
       ReactDOM.render(
-        <LifecycleComponent />,
+        <LifecycleContainer />,
         document.getElementById('app')
       );
 
