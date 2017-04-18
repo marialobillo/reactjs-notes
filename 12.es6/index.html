@@ -23,13 +23,13 @@
       class Counter extends React.Component{
         render(){
           return (
-            <div>Built with ES6 classes</div>
+            <div>{this.props.text}</div>
           )
         }
       }
 
       ReactDOM.render(
-        <Counter />,
+        <Counter text="Hello"/>,
         document.getElementById('app')
       )
     </script>
