@@ -24,6 +24,7 @@
         constructor(props){
           super(props);
           this.state = { count: 0 }
+          this.incrementCount = this.incrementCount.bind(this);
         }
         incrementCount(value){
           this.setState({
@@ -37,15 +38,15 @@
               <Button style="btn btn-primary"
                 text={`${this.props.text} ${this.props.valueOne}`}
                 value={this.props.valueOne}
-                clickHandler={this.incrementCount.bind(this, this.props.valueOne)} />
+                clickHandler={() => this.incrementCount(this, this.props.valueOne)} />
               <Button style="btn btn-warning"
                 text={`${this.props.text} ${this.props.valueTwo}`}
                 value={this.props.valueTwo}
-                clickHandler={this.incrementCount.bind(this, this.props.valueTwo)} />
+                clickHandler={() => this.incrementCount(this, this.props.valueTwo)} />
               <Button style="btn btn-success"
                 text={`${this.props.text} ${this.props.valueThree}`}
                 value={this.props.valueThree}
-                clickHandler={this.incrementCount.bind(this, this.props.valueThree)} />
+                clickHandler={() => this.incrementCount(this, this.props.valueThree)} />
 
 
             </div>
@@ -53,12 +54,19 @@
         }
       }
 
-      var Button = function(props){
+      const Button = (props) => {
         return(
           <button value={props.value} onClick={props.clickHandler} className={props.style}>
             {props.text}
           </button>
         )
+      }
+
+      Button.propTypes = {
+        text: React.PropTypes.string,
+        style: React.PropTypes.string,
+        value: React.PropTypes.number,
+        clickHandler: React.PropTypes.func.isRequired
       }
 
       Counter.defaultProps = {
