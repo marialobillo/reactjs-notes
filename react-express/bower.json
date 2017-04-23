@@ -1,0 +1,17 @@
+{
+  "name": "react-express",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Maria Lobillo <maria.lobillo.santos@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Neniah/reactjs-notes",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
