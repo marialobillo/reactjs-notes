@@ -21,8 +21,26 @@ beforeEach(function(){
         compare: function(actual, expected) {
           var result = {};
           result.pass = actual.isGood();
+
+          if(actual.isGood()){
+            result.message = 'Expected investment to be a bad investment';
+          } else {
+            result.message = 'Expected investment to be a good investment';
+          }
           result.message = 'Expected investment to be a good investment';
           return result;
+        }
+      };
+    }
+  });
+});
+
+beforeEach(function() {
+  jasmine.addMatchers({
+    toBe: function () {
+      return {
+        compare: function (actual, expected) {
+          return actual === expected;
         }
       };
     }
