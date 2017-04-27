@@ -13,3 +13,15 @@ beforeEach(function () {
     }
   });
 });
+
+beforeEach(function(){
+  jasmine.addMatchers({
+    toBeAGoodInvestment: function() {
+      return {
+        compare: function(actual, expected) {
+          
+        }
+      }
+    }
+  });
+});
