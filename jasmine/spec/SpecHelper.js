@@ -34,15 +34,3 @@ beforeEach(function(){
     }
   });
 });
-
-beforeEach(function() {
-  jasmine.addMatchers({
-    toBe: function () {
-      return {
-        compare: function (actual, expected) {
-          return actual === expected;
-        }
-      };
-    }
-  });
-});
