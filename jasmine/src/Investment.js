@@ -10,5 +10,5 @@ Investment.prototype.roi = function(){
 }
 
 Investment.prototype.isGood = function(){
-  return this.roi() > 0;
+  return false
 }
