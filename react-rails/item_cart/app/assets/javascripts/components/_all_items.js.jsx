@@ -5,13 +5,16 @@ var AllItems = React.createClass({
   handleEdit(){
 
   },
+  onUpdate(item){
+    this.props.onUpdate(item);
+  },
   render(){
     var items = this.props.items.map((item) => {
       return (
         <div key={item.id}>
           <Item item={item}
-                handleDelete={this.handleDelete.bind(this.item.id)}
-                handleEdit={this.handleEdit} />
+                handleDelete={this.handleDelete.bind(item.id)}
+                handleUpdate={this.onUpdate} />
         </div>
       )
     });
